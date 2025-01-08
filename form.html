@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 100%;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 98%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        select{
+            width: 99.4%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+  <br>
+  <br>
+<h2 style="font-size: xx-large;">Farmer Registration Form</h2>
+
+<br>
+    <br>
+<form action="#" method="post">
+
+    <!-- Personal Details -->
+    <fieldset>
+        <legend>1. Personal Details</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="name">Age:</label>
+        <input type="text" id="Age" name="Age" required>
+
+        <label for="name">Gender:</label>
+        <input type="text" id="Gender" name="Gender" required>
+
+        <label for="aadhaar">Aadhaar Number (Optional):</label>
+        <input type="text" id="aadhaar" name="aadhaar">
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+
+        <label for="email">Email Address (Optional):</label>
+        <input type="email" id="email" name="email">
+    </fieldset>
+    <br>
+    <br>
+    <!-- Land Details -->
+    <fieldset>
+        <legend>2. Land Details</legend>
+        <label for="landProof">Land Ownership Proof:</label>
+        <input type="text" id="landProof" name="landProof" required>
+
+        <label for="landArea">Land Area (acres/hectares):</label>
+        <input type="text" id="landArea" name="landArea" required>
+
+        <label for="landType">Land Type:</label>
+        <select id="landType" name="landType" required>
+            <option value="irrigated">Irrigated</option>
+            <option value="non-irrigated">Non-Irrigated</option>
+        </select>
+
+        <label for="croppedArea">Cropped Area:</label>
+        <select id="croppedArea" name="croppedArea" required>
+            <option value="single">Single Crop</option>
+            <option value="multiple">Multiple Crops</option>
+        </select>
+
+        <label for="location">Location (Village, Taluka, District, State):</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="soilHealthCard">Soil Health Card Details (if available):</label>
+        <input type="text" id="soilHealthCard" name="soilHealthCard">
+    </fieldset>
+    <br>
+    <br>
+    <!-- Farming-Related Information -->
+    <fieldset>
+        <legend>3. Farming-Related Information</legend>
+        <label for="cropsGrown">Crops Grown:</label>
+        <input type="text" id="cropsGrown" name="cropsGrown" required>
+
+        <label for="livelihoodActivity">Livelihood Activity:</label>
+        <select id="livelihoodActivity" name="livelihoodActivity" required>
+            <option value="cropCultivation">Crop Cultivation</option>
+            <option value="horticulture">Horticulture</option>
+            <option value="dairy">Dairy</option>
+            <option value="poultry">Poultry</option>
+            <option value="fisheries">Fisheries</option>
+        </select>
+
+        <label for="livestockOwnership">Livestock Ownership (Number and Type):</label>
+        <input type="text" id="livestockOwnership" name="livestockOwnership">
+
+        <label for="irrigationSource">Irrigation Source:</label>
+        <input type="text" id="irrigationSource" name 
+        <label for="irrigationSource">Irrigation Source:</label>
+        <input type="text" id="irrigationSource" name="irrigationSource" required>
+
+        <label for="inputUsage">Input Usage (Fertilizers, Seeds, Machinery):</label>
+        <input type="text" id="inputUsage" name="inputUsage" required>
+    </fieldset>
+    <br>
+    <br>
+
+    <!-- Financial Details -->
+    <fieldset>
+        <legend>4. Financial Details</legend>
+        <label for="accountNumber">Bank Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required>
+
+        <label for="ifscCode">IFSC Code:</label>
+        <input type="text" id="ifscCode" name="ifscCode" required>
+
+        <label for="aadhaarLinked">Is your bank account linked with Aadhaar?</label>
+        <select id="aadhaarLinked" name="aadhaarLinked" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="kccDetails">Kisan Credit Card (KCC) Details (If applicable):</label>
+        <select id="kccDetails" name="kccDetails" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="annualIncome">Approximate Annual Income:</label>
+        <input type="number" id="annualIncome" name="annualIncome" required>
+    </fieldset>
+   
+        
+    </body>
