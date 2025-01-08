@@ -77,8 +77,86 @@
       white-space: pre-wrap; /* preserve error text/new lines */
     }
   </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Registration Form</title>
+  <style>
+    /* Basic styling for demonstration */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: #28a745;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Container for alerts placed BELOW the form */
+    #alertContainer {
+      margin-top: 2rem;
+    }
+
+    /* Success alert styling */
+    #successAlert {
+      display: none;
+      background-color: #28a745;
+      color: #fff;
+      border: 1px solid #28a745;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      white-space: pre-wrap; /* preserve JSON/new lines */
+    }
+
+    /* Error alert styling */
+    #errorAlert {
+      display: none;
+      background-color: #dc3545;
+      color: #fff;
+      border: 1px solid #dc3545;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      white-space: pre-wrap; /* preserve error text/new lines */
+    }
+  </style>
 </head>
 <body>
+
+  <h2>Farmer Registration Form</h2>
 
   <h2>Farmer Registration Form</h2>
 
@@ -87,13 +165,31 @@
     <!-- Required Fields -->
     <label for="name">Name (required):</label>
     <input type="text" id="name" name="name" required />
+  <!-- Farmer Registration Form -->
+  <form id="farmerRegistrationForm">
+    <!-- Required Fields -->
+    <label for="name">Name (required):</label>
+    <input type="text" id="name" name="name" required />
 
+    <label for="age">Age (required):</label>
+    <input type="number" id="age" name="age" required />
     <label for="age">Age (required):</label>
     <input type="number" id="age" name="age" required />
 
     <label for="gender">Gender (required):</label>
     <input type="text" id="gender" name="gender" required />
+    <label for="gender">Gender (required):</label>
+    <input type="text" id="gender" name="gender" required />
 
+    <label for="location_details">Location (required):</label>
+    <input type="text" id="location_details" name="location_details" required />
+
+    <!-- OPTIONAL FIELDS -->
+    <label for="aadhar_number_or_unique_id">Aadhaar / Unique ID (optional):</label>
+    <input type="text" id="aadhar_number_or_unique_id" name="aadhar_number_or_unique_id" />
+
+    <label for="contact_info">Contact Info (optional):</label>
+    <input type="text" id="contact_info" name="contact_info" />
     <label for="location_details">Location (required):</label>
     <input type="text" id="location_details" name="location_details" required />
 
@@ -109,7 +205,17 @@
 
     <label for="land_area">Land Area (acres/hectares) (optional):</label>
     <input type="text" id="land_area" name="land_area" />
+    <label for="land_ownership_proof">Land Ownership Proof (optional):</label>
+    <input type="text" id="land_ownership_proof" name="land_ownership_proof" />
 
+    <label for="land_area">Land Area (acres/hectares) (optional):</label>
+    <input type="text" id="land_area" name="land_area" />
+
+    <label for="soil_health_card">Soil Health Card (optional):</label>
+    <input type="text" id="soil_health_card" name="soil_health_card" />
+
+    <label for="crop_grown">Crops Grown (optional):</label>
+    <input type="text" id="crop_grown" name="crop_grown" />
     <label for="soil_health_card">Soil Health Card (optional):</label>
     <input type="text" id="soil_health_card" name="soil_health_card" />
 
@@ -125,13 +231,38 @@
       <option value="poultry">Poultry</option>
       <option value="fisheries">Fisheries</option>
     </select>
+    <label for="livelehood_activity">Livelihood Activity (optional):</label>
+    <select id="livelehood_activity" name="livelehood_activity">
+      <option value="">-- Select --</option>
+      <option value="cropCultivation">Crop Cultivation</option>
+      <option value="horticulture">Horticulture</option>
+      <option value="dairy">Dairy</option>
+      <option value="poultry">Poultry</option>
+      <option value="fisheries">Fisheries</option>
+    </select>
 
+    <label for="livestock_ownership">Livestock Ownership (optional):</label>
+    <input type="text" id="livestock_ownership" name="livestock_ownership" />
     <label for="livestock_ownership">Livestock Ownership (optional):</label>
     <input type="text" id="livestock_ownership" name="livestock_ownership" />
 
     <label for="irrigation_source">Irrigation Source (optional):</label>
     <input type="text" id="irrigation_source" name="irrigation_source" />
+    <label for="irrigation_source">Irrigation Source (optional):</label>
+    <input type="text" id="irrigation_source" name="irrigation_source" />
 
+    <label for="input_usage">Input Usage (optional):</label>
+    <input type="text" id="input_usage" name="input_usage" />
+
+    <label for="bank_account_info">Bank Account Info (optional):</label>
+    <input type="text" id="bank_account_info" name="bank_account_info" />
+
+    <label for="kisan_credit_card">Kisan Credit Card (optional):</label>
+    <select id="kisan_credit_card" name="kisan_credit_card">
+      <option value="">-- Select --</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
     <label for="input_usage">Input Usage (optional):</label>
     <input type="text" id="input_usage" name="input_usage" />
 
