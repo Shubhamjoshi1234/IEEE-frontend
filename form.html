@@ -1,166 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer Registration Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            max-width: 100%;
-        }
-        h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input {
-            width: 98%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        select{
-            width: 99.4%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Registration Form</title>
+  <style>
+    /* Basic styling for demonstration */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: #28a745;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Container for alerts placed BELOW the form */
+    #alertContainer {
+      margin-top: 2rem;
+    }
+
+    /* Success alert styling */
+    #successAlert {
+      display: none;
+      background-color: #28a745;
+      color: #fff;
+      border: 1px solid #28a745;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      white-space: pre-wrap; /* preserve JSON/new lines */
+    }
+
+    /* Error alert styling */
+    #errorAlert {
+      display: none;
+      background-color: #dc3545;
+      color: #fff;
+      border: 1px solid #dc3545;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      white-space: pre-wrap; /* preserve error text/new lines */
+    }
+  </style>
 </head>
 <body>
-  <br>
-  <br>
-<h2 style="font-size: xx-large;">Farmer Registration Form</h2>
 
-<br>
-    <br>
-<form action="#" method="post">
+  <h2>Farmer Registration Form</h2>
 
-    <!-- Personal Details -->
-    <fieldset>
-        <legend>1. Personal Details</legend>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+  <!-- Farmer Registration Form -->
+  <form id="farmerRegistrationForm">
+    <!-- Required Fields -->
+    <label for="name">Name (required):</label>
+    <input type="text" id="name" name="name" required />
 
-        <label for="name">Age:</label>
-        <input type="text" id="Age" name="Age" required>
+    <label for="age">Age (required):</label>
+    <input type="number" id="age" name="age" required />
 
-        <label for="name">Gender:</label>
-        <input type="text" id="Gender" name="Gender" required>
+    <label for="gender">Gender (required):</label>
+    <input type="text" id="gender" name="gender" required />
 
-        <label for="aadhaar">Aadhaar Number (Optional):</label>
-        <input type="text" id="aadhaar" name="aadhaar">
+    <label for="location_details">Location (required):</label>
+    <input type="text" id="location_details" name="location_details" required />
 
-        <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile" required>
+    <!-- OPTIONAL FIELDS -->
+    <label for="aadhar_number_or_unique_id">Aadhaar / Unique ID (optional):</label>
+    <input type="text" id="aadhar_number_or_unique_id" name="aadhar_number_or_unique_id" />
 
-        <label for="email">Email Address (Optional):</label>
-        <input type="email" id="email" name="email">
-    </fieldset>
-    <br>
-    <br>
-    <!-- Land Details -->
-    <fieldset>
-        <legend>2. Land Details</legend>
-        <label for="landProof">Land Ownership Proof:</label>
-        <input type="text" id="landProof" name="landProof" required>
+    <label for="contact_info">Contact Info (optional):</label>
+    <input type="text" id="contact_info" name="contact_info" />
 
-        <label for="landArea">Land Area (acres/hectares):</label>
-        <input type="text" id="landArea" name="landArea" required>
+    <label for="land_ownership_proof">Land Ownership Proof (optional):</label>
+    <input type="text" id="land_ownership_proof" name="land_ownership_proof" />
 
-        <label for="landType">Land Type:</label>
-        <select id="landType" name="landType" required>
-            <option value="irrigated">Irrigated</option>
-            <option value="non-irrigated">Non-Irrigated</option>
-        </select>
+    <label for="land_area">Land Area (acres/hectares) (optional):</label>
+    <input type="text" id="land_area" name="land_area" />
 
-        <label for="croppedArea">Cropped Area:</label>
-        <select id="croppedArea" name="croppedArea" required>
-            <option value="single">Single Crop</option>
-            <option value="multiple">Multiple Crops</option>
-        </select>
+    <label for="soil_health_card">Soil Health Card (optional):</label>
+    <input type="text" id="soil_health_card" name="soil_health_card" />
 
-        <label for="location">Location (Village, Taluka, District, State):</label>
-        <input type="text" id="location" name="location" required>
+    <label for="crop_grown">Crops Grown (optional):</label>
+    <input type="text" id="crop_grown" name="crop_grown" />
 
-        <label for="soilHealthCard">Soil Health Card Details (if available):</label>
-        <input type="text" id="soilHealthCard" name="soilHealthCard">
-    </fieldset>
-    <br>
-    <br>
-    <!-- Farming-Related Information -->
-    <fieldset>
-        <legend>3. Farming-Related Information</legend>
-        <label for="cropsGrown">Crops Grown:</label>
-        <input type="text" id="cropsGrown" name="cropsGrown" required>
+    <label for="livelehood_activity">Livelihood Activity (optional):</label>
+    <select id="livelehood_activity" name="livelehood_activity">
+      <option value="">-- Select --</option>
+      <option value="cropCultivation">Crop Cultivation</option>
+      <option value="horticulture">Horticulture</option>
+      <option value="dairy">Dairy</option>
+      <option value="poultry">Poultry</option>
+      <option value="fisheries">Fisheries</option>
+    </select>
 
-        <label for="livelihoodActivity">Livelihood Activity:</label>
-        <select id="livelihoodActivity" name="livelihoodActivity" required>
-            <option value="cropCultivation">Crop Cultivation</option>
-            <option value="horticulture">Horticulture</option>
-            <option value="dairy">Dairy</option>
-            <option value="poultry">Poultry</option>
-            <option value="fisheries">Fisheries</option>
-        </select>
+    <label for="livestock_ownership">Livestock Ownership (optional):</label>
+    <input type="text" id="livestock_ownership" name="livestock_ownership" />
 
-        <label for="livestockOwnership">Livestock Ownership (Number and Type):</label>
-        <input type="text" id="livestockOwnership" name="livestockOwnership">
+    <label for="irrigation_source">Irrigation Source (optional):</label>
+    <input type="text" id="irrigation_source" name="irrigation_source" />
 
-        <label for="irrigationSource">Irrigation Source:</label>
-        <input type="text" id="irrigationSource" name 
-        <label for="irrigationSource">Irrigation Source:</label>
-        <input type="text" id="irrigationSource" name="irrigationSource" required>
+    <label for="input_usage">Input Usage (optional):</label>
+    <input type="text" id="input_usage" name="input_usage" />
 
-        <label for="inputUsage">Input Usage (Fertilizers, Seeds, Machinery):</label>
-        <input type="text" id="inputUsage" name="inputUsage" required>
-    </fieldset>
-    <br>
-    <br>
+    <label for="bank_account_info">Bank Account Info (optional):</label>
+    <input type="text" id="bank_account_info" name="bank_account_info" />
 
-    <!-- Financial Details -->
-    <fieldset>
-        <legend>4. Financial Details</legend>
-        <label for="accountNumber">Bank Account Number:</label>
-        <input type="text" id="accountNumber" name="accountNumber" required>
+    <label for="kisan_credit_card">Kisan Credit Card (optional):</label>
+    <select id="kisan_credit_card" name="kisan_credit_card">
+      <option value="">-- Select --</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
 
-        <label for="ifscCode">IFSC Code:</label>
-        <input type="text" id="ifscCode" name="ifscCode" required>
+    <label for="income_details">Approximate Annual Income (optional):</label>
+    <input type="text" id="income_details" name="income_details" />
 
-        <label for="aadhaarLinked">Is your bank account linked with Aadhaar?</label>
-        <select id="aadhaarLinked" name="aadhaarLinked" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
+    <!-- Submit Button -->
+    <button id="submitButton" type="button">Submit</button>
+  </form>
 
-        <label for="kccDetails">Kisan Credit Card (KCC) Details (If applicable):</label>
-        <select id="kccDetails" name="kccDetails" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
+  <!-- Alerts Container BELOW the form -->
+  <div id="alertContainer">
+    <div id="successAlert"></div>
+    <div id="errorAlert"></div>
+  </div>
 
-        <label for="annualIncome">Approximate Annual Income:</label>
-        <input type="number" id="annualIncome" name="annualIncome" required>
-    </fieldset>
-   
-        
-    </body>
+  <script>
+    // Attach a 'click' listener to the "Submit" button
+    document.getElementById("submitButton").addEventListener("click", async function () {
+      const form = document.getElementById("farmerRegistrationForm");
+      const submitButton = document.getElementById("submitButton");
+      const successAlert = document.getElementById("successAlert");
+      const errorAlert = document.getElementById("errorAlert");
+
+      // Hide previous alerts
+      successAlert.style.display = "none";
+      errorAlert.style.display = "none";
+
+      // Add a "loading" state to the button
+      submitButton.textContent = "Submitting...";
+      submitButton.disabled = true;
+
+      // Prepare query parameters based on form fields
+      const params = new URLSearchParams({
+        name: form.name.value,
+        age: form.age.value,
+        gender: form.gender.value,
+        location_details: form.location_details.value,
+        aadhar_number_or_unique_id: form.aadhar_number_or_unique_id.value || "",
+        contact_info: form.contact_info.value || "",
+        land_ownership_proof: form.land_ownership_proof.value || "",
+        land_area: form.land_area.value || "",
+        soil_health_card: form.soil_health_card.value || "",
+        crop_grown: form.crop_grown.value || "",
+        livelehood_activity: form.livelehood_activity.value || "",
+        livestock_ownership: form.livestock_ownership.value || "",
+        irrigation_source: form.irrigation_source.value || "",
+        input_usage: form.input_usage.value || "",
+        bank_account_info: form.bank_account_info.value || "",
+        kisan_credit_card: form.kisan_credit_card.value || "",
+        income_details: form.income_details.value || ""
+      });
+
+      try {
+        // Send a POST request with query parameters in the URL
+        const response = await fetch(
+          `http://ec2-15-206-159-122.ap-south-1.compute.amazonaws.com:8010/api/chatbot/policy-recommender?${params.toString()}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            }
+          }
+        );
+
+        if (response.ok) {
+          // Since we get a string response, read it as text:
+          const textData = await response.text();
+
+          // Try to parse it as JSON for nicer formatting
+          let formattedOutput;
+          try {
+            const parsedJSON = JSON.parse(textData);
+            // Pretty-print if it is valid JSON
+            formattedOutput = JSON.stringify(parsedJSON, null, 2);
+          } catch {
+            // If not valid JSON, just display the raw text
+            formattedOutput = textData;
+          }
+
+          // Display the result in the success alert at the bottom
+          successAlert.textContent = formattedOutput;
+          successAlert.style.display = "block";
+
+          // Log the raw string for debugging
+          console.log("Response (string):", textData);
+
+        } else {
+          // If API responded with an error status, read the error text
+          const errorText = await response.text();
+          throw new Error(`API responded with an error:\n${errorText}`);
+        }
+
+      } catch (error) {
+        console.error("Error:", error);
+        errorAlert.textContent = `Error submitting form:\n${error.message}`;
+        errorAlert.style.display = "block";
+
+      } finally {
+        // Restore button state
+        submitButton.textContent = "Submit";
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -136,7 +136,7 @@ header {
 }
 
 .nav__container {
-  border-radius: 10px;
+ 
   width: 100%;
   padding: 1rem 1rem;
   display: flex;
@@ -179,6 +179,48 @@ header {
   display: flex;
   align-items: center;
   gap: 4rem;
+}
+/* Set the background image for the header section */
+.header__container {
+  position: relative;
+  height: 100vh; /* Make it cover the full height of the viewport */
+  background-image: url('bg.ieee.jpg'); /* Replace this with the path to your image */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.4); /* Optional background color (change to your preferred color) */
+}
+
+/* Add a pseudo-element to apply the translucent effect */
+.header__container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay to decrease opacity */
+  z-index: 1; /* Make sure the overlay is above the image but behind the content */
+}
+
+/* Ensure the content is above the overlay and the background */
+.header__content {
+  position: relative;
+  z-index: 2; /* This ensures the text appears above the overlay */
+  color: white; /* Make text white to stand out against the background */
+  padding: 20px;
+}
+
+.header__form {
+  position: relative;
+  z-index: 2; /* Form should also be above the overlay */
+  color: white; /* White text for form */
+}
+
+/* Optional: Add shadow to text for better readability */
+.header__content h1,
+.header__content p {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow for readability */
 }
 
 .header__container h1 {
